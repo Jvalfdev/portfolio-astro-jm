@@ -1,0 +1,58 @@
+---
+import { contact, social } from "../data/site.ts";
+
+const mailto = `mailto:${contact.email}?subject=${encodeURIComponent("Consulta desde el portafolio")}`;
+const showEmail = contact.email && !contact.email.includes("tu-email@ejemplo.com");
+---
+
+<section id="contacto" class="wrap" aria-labelledby="contact-heading">
+	<p class="section-label" data-i18n="contact.label">{contact.sectionLabel}</p>
+	<div class="contact-box">
+		<h2 id="contact-heading" data-i18n="contact.headline">{contact.headline}</h2>
+		<p class="lead" data-i18n="contact.sub">{contact.sub}</p>
+		<div class="email-row">
+			{showEmail && (
+				<a
+					class="btn btn-primary"
+					href={mailto}
+					data-mailto-link
+					data-email={contact.email}
+					data-subject-es="Consulta desde el portafolio"
+					data-subject-en="Portfolio enquiry"
+					data-i18n="contact.email"
+				>
+					Enviar email
+				</a>
+			)}
+			<a
+				class={showEmail ? "btn btn-ghost" : "btn btn-primary"}
+				href={social.linkedin}
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				LinkedIn
+			</a>
+			{social.github && (
+				<a class="btn btn-ghost" href={social.github} target="_blank" rel="noopener noreferrer">
+					GitHub
+				</a>
+			)}
+			{contact.calendarUrl && (
+				<a
+					class="btn btn-ghost"
+					href={contact.calendarUrl}
+					target="_blank"
+					rel="noopener noreferrer"
+					data-i18n="contact.meeting"
+				>
+					Reservar reunión
+				</a>
+			)}
+		</div>
+		{showEmail && (
+			<p class="text-muted" style="margin-top: 1.25rem; margin-bottom: 0;">
+				<span class="email-display" aria-label="Correo electrónico">{contact.email}</span>
+			</p>
+		)}
+	</div>
+</section>

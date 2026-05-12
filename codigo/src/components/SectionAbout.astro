@@ -1,0 +1,51 @@
+---
+import { about, social } from "../data/site.ts";
+---
+
+<section id="sobre-mi" class="wrap" aria-labelledby="about-heading">
+	<p class="section-label" data-i18n="about.label">{about.sectionLabel}</p>
+	<div class="two-col section-head">
+		<div>
+			<h2 id="about-heading" data-i18n="about.headline">{about.headline}</h2>
+		</div>
+		<div class="stats-grid" role="list">
+			{about.stats.map((s, i) => (
+				<div class="stat-card" role="listitem">
+					<div class="stat-value">{s.value}</div>
+					<div class="stat-label" data-i18n={`about.stat${i}`}>
+						{s.label}
+					</div>
+				</div>
+			))}
+		</div>
+	</div>
+	<div class="two-col" style="margin-top: 1.5rem;">
+		<div class="mini-timeline" aria-hidden="true">
+			{about.timelineHint.map((step, i) => (
+				<div class="mini-step">
+					<strong>{step.year}</strong>
+					<span data-i18n={`about.tl${i}`}>{step.role}</span>
+				</div>
+			))}
+		</div>
+		<div class="about-copy">
+			{about.paragraphs.map((p, i) => (
+				<p data-i18n={`about.p${i}`}>{p}</p>
+			))}
+			{about.testimonial && (
+				<figure class="testimonial">
+					<blockquote cite={social.linkedin}>
+						<p data-i18n="about.testimonial">{about.testimonial.quote}</p>
+					</blockquote>
+					<figcaption>
+						<strong>{about.testimonial.author}</strong>
+						<span class="text-muted">
+							{" · "}
+							<span data-i18n="about.testimonial.ctx">{about.testimonial.context}</span>
+						</span>
+					</figcaption>
+				</figure>
+			)}
+		</div>
+	</div>
+</section>

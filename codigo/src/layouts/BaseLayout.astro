@@ -1,0 +1,172 @@
+---
+import "../styles/global.css";
+import { siteMeta } from "../data/site.ts";
+import { enStrings } from "../i18n/en.ts";
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { title = siteMeta.title, description = siteMeta.description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta id="site-meta-description" name="description" content={description} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Outfit:wght@500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<script is:inline>
+			try {
+				if (localStorage.getItem("portfolio-lang") === "en") {
+					document.documentElement.lang = "en";
+				}
+				if (localStorage.getItem("portfolio-theme") === "light") {
+					document.documentElement.setAttribute("data-theme", "light");
+				}
+			} catch (e) {}
+		</script>
+		<slot />
+
+		<script is:inline define:vars={{ enStrings }}>
+			(function () {
+				var DICT = enStrings || {};
+				var STORAGE = "portfolio-lang";
+
+				function backupI18nEl(el) {
+					if (!el.hasAttribute || !el.hasAttribute("data-i18n")) return;
+					if (typeof el.dataset.i18nBackup === "string") return;
+					el.dataset.i18nBackup = el.textContent || "";
+				}
+
+				function applyLang(lang) {
+					var safe = lang === "en" ? "en" : "es";
+					document.documentElement.lang = safe;
+					try {
+						localStorage.setItem(STORAGE, safe);
+					} catch (e) {}
+
+					document.querySelectorAll("[data-i18n]").forEach(function (el) {
+						var key = el.getAttribute("data-i18n");
+						if (!key) return;
+						backupI18nEl(el);
+						if (safe === "es") {
+							el.textContent = el.dataset.i18nBackup || "";
+						} else if (Object.prototype.hasOwnProperty.call(DICT, key)) {
+							el.textContent = DICT[key];
+						}
+					});
+
+					var mt = DICT["meta.title"];
+					if (safe === "en" && mt) document.title = mt;
+					else if (safe === "es" && window.__TITLE_ES__) document.title = window.__TITLE_ES__;
+
+					var meta = document.getElementById("site-meta-description");
+					if (meta) {
+						if (!window.__DESC_ES__) window.__DESC_ES__ = meta.getAttribute("content") || "";
+						if (safe === "en" && DICT["meta.description"]) meta.setAttribute("content", DICT["meta.description"]);
+						else meta.setAttribute("content", window.__DESC_ES__ || "");
+					}
+
+					document.querySelectorAll("[data-mailto-link]").forEach(function (a) {
+						var email = a.getAttribute("data-email") || "";
+						var subEs = a.getAttribute("data-subject-es") || "";
+						var subEn = a.getAttribute("data-subject-en") || "";
+						var sub = safe === "en" ? subEn || subEs : subEs;
+						if (email) a.setAttribute("href", "mailto:" + email + "?subject=" + encodeURIComponent(sub));
+					});
+
+					var root = document.getElementById("lang-switch-root");
+					var switchBtn = document.getElementById("lang-switch-btn");
+					if (root) root.setAttribute("data-lang", safe);
+					if (switchBtn) {
+						switchBtn.setAttribute(
+							"aria-label",
+							safe === "es"
+								? "Idioma: español. Cambiar a inglés"
+								: "Language: English. Switch to Spanish",
+						);
+					}
+				}
+
+				document.addEventListener("DOMContentLoaded", function () {
+					window.__TITLE_ES__ = document.title;
+
+					var saved = "es";
+					try {
+						saved = localStorage.getItem(STORAGE) === "en" ? "en" : "es";
+					} catch (e) {}
+					applyLang(saved);
+
+					var btn = document.getElementById("lang-switch-btn");
+					if (btn) {
+						btn.addEventListener("click", function (e) {
+							e.preventDefault();
+							e.stopPropagation();
+							var cur = document.documentElement.getAttribute("lang") === "en" ? "en" : "es";
+							applyLang(cur === "en" ? "es" : "en");
+							if (typeof btn.blur === "function") btn.blur();
+						});
+					}
+				});
+			})();
+		</script>
+
+		<script is:inline>
+			(function () {
+				var THEME_KEY = "portfolio-theme";
+
+				function syncThemeUI() {
+					var isLight = document.documentElement.getAttribute("data-theme") === "light";
+					var wrap = document.getElementById("theme-switch-root");
+					if (wrap) wrap.setAttribute("data-active", isLight ? "light" : "dark");
+					var tb = document.getElementById("theme-switch-btn");
+					if (tb) {
+						tb.setAttribute("aria-label", isLight ? "Cambiar a modo oscuro" : "Cambiar a modo claro");
+						tb.setAttribute(
+							"title",
+							isLight ? "Modo claro (cambiar a oscuro)" : "Modo oscuro (cambiar a claro)",
+						);
+					}
+				}
+
+				document.addEventListener("DOMContentLoaded", function () {
+					syncThemeUI();
+					var themeBtn = document.getElementById("theme-switch-btn");
+					if (themeBtn) {
+						themeBtn.addEventListener("click", function (e) {
+							e.preventDefault();
+							e.stopPropagation();
+							var light = document.documentElement.getAttribute("data-theme") === "light";
+							if (light) {
+								document.documentElement.removeAttribute("data-theme");
+								try {
+									localStorage.removeItem(THEME_KEY);
+								} catch (err) {}
+							} else {
+								document.documentElement.setAttribute("data-theme", "light");
+								try {
+									localStorage.setItem(THEME_KEY, "light");
+								} catch (err) {}
+							}
+							syncThemeUI();
+							if (typeof themeBtn.blur === "function") themeBtn.blur();
+						});
+					}
+				});
+			})();
+		</script>
+	</body>
+</html>

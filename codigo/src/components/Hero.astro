@@ -1,0 +1,29 @@
+---
+import { identity, social } from "../data/site.ts";
+---
+
+<section id="inicio" class="hero wrap" aria-labelledby="hero-heading">
+	<p class="hero-badge" data-i18n="hero.tagline">{identity.tagline}</p>
+	<h1 id="hero-heading">
+		<span class="hero-name">{identity.name}</span>
+		<span class="hero-role" data-i18n="hero.role">{identity.roleShort}</span>
+	</h1>
+	<p class="hero-lead" data-i18n="hero.lead">{identity.heroLead}</p>
+	<div class="pills" role="list">
+		{identity.heroTags.map((t) => (
+			<span class="pill" role="listitem">{t}</span>
+		))}
+	</div>
+	<div class="cta-row">
+		<a class="btn btn-primary" href="#sobre-mi" data-i18n="hero.cta.more">Conoce más</a>
+		<a class="btn btn-ghost" href="#contacto" data-i18n="hero.cta.talk">Hablemos</a>
+		<a class="btn btn-ghost" href={social.linkedin} target="_blank" rel="noopener noreferrer">
+			LinkedIn
+		</a>
+		{social.github && (
+			<a class="btn btn-ghost" href={social.github} target="_blank" rel="noopener noreferrer">
+				GitHub
+			</a>
+		)}
+	</div>
+</section>

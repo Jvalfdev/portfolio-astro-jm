@@ -1,0 +1,33 @@
+---
+import { education } from "../data/site.ts";
+
+const kindLabel = (k: "cert" | "degree") => (k === "cert" ? "Certificación" : "Formación");
+const kindKey = (k: "cert" | "degree") => (k === "cert" ? "edu.kind.cert" : "edu.kind.degree");
+---
+
+<section id="formacion" class="wrap" aria-labelledby="edu-heading">
+	<p class="section-label" data-i18n="edu.label">03 — Formación</p>
+	<div class="section-head">
+		<h2 id="edu-heading" data-i18n="edu.headline">Certificaciones y títulos</h2>
+		<p class="text-muted" data-i18n="edu.sub">
+			Sustituí o ampliá según lo que quieras mostrar a clientes B2B.
+		</p>
+	</div>
+	<div class="edu-grid">
+		{education.map((item, i) => (
+			<div class="edu-card">
+				<p class="edu-kind" data-i18n={kindKey(item.kind)}>
+					{kindLabel(item.kind)}
+				</p>
+				<h3 class="edu-title" data-i18n={`edu${i}.title`}>
+					{item.title}
+				</h3>
+				<p class="edu-issuer">
+					<span data-i18n={`edu${i}.meta`}>
+						{item.issuer} · {item.year}
+					</span>
+				</p>
+			</div>
+		))}
+	</div>
+</section>

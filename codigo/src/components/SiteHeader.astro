@@ -1,0 +1,30 @@
+---
+import { identity, social } from "../data/site.ts";
+import LanguageSwitcher from "./LanguageSwitcher.astro";
+import ThemeToggle from "./ThemeToggle.astro";
+---
+
+<header class="site-header">
+	<div class="inner">
+		<a class="brand" href="#inicio">{identity.name}</a>
+		<div class="header-end">
+			<nav class="nav" aria-label="Secciones principales">
+				<a href="#sobre-mi" data-i18n="nav.about">Sobre mí</a>
+				<a href="#experiencia" data-i18n="nav.exp">Experiencia</a>
+				<a href="#formacion" data-i18n="nav.edu">Formación</a>
+				<a href="#proyectos" data-i18n="nav.projects">Proyectos</a>
+				<a href="#contacto" data-i18n="nav.contact">Contacto</a>
+				{social.github && (
+					<a href={social.github} target="_blank" rel="noopener noreferrer" data-i18n="nav.github">
+						GitHub
+					</a>
+				)}
+				<a href={social.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+			</nav>
+			<div class="header-controls">
+				<ThemeToggle />
+				<LanguageSwitcher />
+			</div>
+		</div>
+	</div>
+</header>

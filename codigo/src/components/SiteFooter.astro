@@ -1,0 +1,13 @@
+---
+import { identity } from "../data/site.ts";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer wrap">
+	<p>
+		© {year} {identity.name}.{" "}
+		<span data-i18n="footer.lead">Contenido editable en</span>{" "}
+		<code style="font-size: 0.85em">src/data/site.ts</code>.
+	</p>
+</footer>
