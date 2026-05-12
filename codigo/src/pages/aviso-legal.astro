@@ -1,0 +1,63 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import { identity } from "../data/site.ts";
+
+const title = `Aviso legal | ${identity.name}`;
+const description =
+	"Aviso legal y datos del titular del sitio (LSSI-CE) — portafolio profesional de Jose Vallejo.";
+---
+
+<BaseLayout {title} {description} titleI18nKey="meta.legal.title" descI18nKey="meta.legal.description">
+	<a class="skip-link" href="#contenido-legal" data-i18n="skip">Saltar al contenido</a>
+	<SiteHeader />
+	<div class="legal-page wrap">
+		<a class="legal-back" href="/#inicio" data-i18n="footer.back">← Volver al inicio</a>
+		<article id="contenido-legal">
+			<h1 data-i18n="legal.al.title">Aviso legal</h1>
+			<p class="legal-updated" data-i18n="legal.al.updated">Última actualización: mayo de 2026</p>
+			<p data-i18n="legal.al.lead">
+				Este sitio es un portafolio personal. La información siguiente cumple con las obligaciones de
+				transparencia de la Ley 34/2002, de servicios de la sociedad de la información y de comercio
+				electrónico (LSSI-CE), en el ámbito de un sitio meramente informativo.
+			</p>
+			<h2 data-i18n="legal.al.h1">Datos identificativos del titular</h2>
+			<p data-i18n="legal.al.p1">
+				Titular del sitio web: {identity.name}. Para comunicaciones relacionadas con el presente aviso
+				puedes utilizar el correo indicado en la sección de contacto de la página principal (cuando
+				esté publicado) o los canales de LinkedIn enlazados en el sitio.
+			</p>
+			<h2 data-i18n="legal.al.h2">Objeto</h2>
+			<p data-i18n="legal.al.p2">
+				El sitio tiene como finalidad mostrar la trayectoria profesional, proyectos y formas de
+				contacto. No existen servicios de comercio electrónico, registro de usuarios ni áreas
+				restringidas que requieran contratación.
+			</p>
+			<h2 data-i18n="legal.al.h3">Propiedad intelectual e industrial</h2>
+			<p data-i18n="legal.al.p3">
+				Los contenidos propios (textos, estructura y diseño del sitio) pertenecen al titular, salvo
+				indicación en contrario. Las marcas o logotipos de terceros citados son propiedad de sus
+				respectivos titulares.
+			</p>
+			<h2 data-i18n="legal.al.h4">Enlaces externos</h2>
+			<p data-i18n="legal.al.p4">
+				El sitio puede incluir enlaces a sitios de terceros (por ejemplo GitHub o LinkedIn) a modo de
+				referencia. El titular no se responsabiliza del contenido ni de las políticas de dichas
+				páginas.
+			</p>
+			<h2 data-i18n="legal.al.h5">Limitación de responsabilidad</h2>
+			<p data-i18n="legal.al.p5">
+				La información se ofrece de buena fe y puede actualizarse sin previo aviso. No se asume
+				obligación de resultado más allá de lo exigible para un sitio informativo de esta naturaleza.
+			</p>
+			<h2 data-i18n="legal.al.h6">Legislación aplicable</h2>
+			<p data-i18n="legal.al.p6">
+				En lo no regulado expresamente se aplicará la legislación española. Para consumidores de la
+				Unión Europea, serán de aplicación las disposiciones imperativas del país en que tengan su
+				residencia habitual, en su caso.
+			</p>
+		</article>
+	</div>
+	<SiteFooter />
+</BaseLayout>

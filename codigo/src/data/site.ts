@@ -1,6 +1,7 @@
 /**
  * Datos del portafolio — alineados con LinkedIn (perfil público jvalf).
- * Email de contacto: completá `contact.email` con el que quieras mostrar.
+ * Contacto: `contact.email`, `contact.phone` (texto que se muestra) y
+ * `contact.whatsappNumber` (solo dígitos con prefijo país, sin +, p. ej. 34612345678).
  */
 
 export const siteMeta = {
@@ -180,7 +181,11 @@ export const contact = {
 	sectionLabel: "05 — Contacto",
 	headline: "¿Hablamos?",
 	sub:
-		"Abierto a oportunidades de desarrollo Java/JavaScript/.NET y colaboración en equipos ágiles. Escribime o conectá por LinkedIn. Sustituí el email de ejemplo cuando quieras publicarlo.",
-	email: "tu-email@ejemplo.com",
+		"Abierto a oportunidades de desarrollo Java/JavaScript/.NET y colaboración en equipos ágiles. Podés escribirme por email, teléfono, WhatsApp o LinkedIn.",
+	email: "jvalfdev@gmail.com",
+	/** Texto visible y en el enlace tel:, p. ej. +34 612 345 678 */
+	phone: "+34 636 593 210",
+	/** Mismo móvil en formato internacional sin + ni espacios (solo dígitos: 34 + 9 dígitos). WhatsApp usa esto para abrir wa.me/... */
+	whatsappNumber: "34636593210",
 	calendarUrl: "",
 };

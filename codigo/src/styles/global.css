@@ -512,6 +512,44 @@ h3 {
 	color: var(--accent);
 }
 
+.btn-whatsapp {
+	background: #25d366;
+	color: #fff;
+	border-color: #128c43;
+	text-decoration: none;
+}
+
+.btn-whatsapp:hover {
+	background: #20bd5c;
+	border-color: #128c43;
+	color: #fff;
+}
+
+.btn-whatsapp--outline {
+	background: transparent;
+	color: #25d366;
+	border-color: rgba(37, 211, 102, 0.55);
+}
+
+.btn-whatsapp--outline:hover {
+	background: rgba(37, 211, 102, 0.12);
+	border-color: #25d366;
+	color: #1faa55;
+}
+
+.btn-whatsapp__icon {
+	flex-shrink: 0;
+	opacity: 0.95;
+}
+
+:root[data-theme="light"] .btn-whatsapp:hover {
+	color: #fff;
+}
+
+:root[data-theme="light"] .btn-whatsapp--outline:hover {
+	color: #0f8f45;
+}
+
 /* Sections */
 section {
 	padding: 3.5rem 0;
@@ -771,7 +809,33 @@ section {
 	align-items: center;
 }
 
-.email-display {
+.contact-direct {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	margin-top: 1.25rem;
+}
+
+.contact-direct__row {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 0.5rem 0.85rem;
+	margin: 0;
+}
+
+.contact-direct__label {
+	flex: 0 0 auto;
+	min-width: 5.5rem;
+	font-size: 0.8125rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	color: var(--muted);
+}
+
+.contact-chip {
+	display: inline-block;
 	font-family: ui-monospace, "Cascadia Code", monospace;
 	font-size: 0.95rem;
 	color: var(--text);
@@ -779,6 +843,15 @@ section {
 	padding: 0.5rem 0.85rem;
 	border-radius: 8px;
 	border: 1px solid var(--border);
+	text-decoration: none;
+	transition:
+		border-color 0.15s,
+		color 0.15s;
+}
+
+.contact-chip:hover {
+	border-color: var(--accent);
+	color: var(--accent);
 }
 
 /* Footer */
@@ -788,6 +861,86 @@ section {
 	color: var(--muted);
 	font-size: 0.85rem;
 	text-align: center;
+}
+
+.footer-line {
+	margin: 0 0 0.85rem;
+}
+
+.footer-legal {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.35rem 0.65rem;
+	justify-content: center;
+	align-items: center;
+	font-size: 0.8125rem;
+}
+
+.footer-legal a {
+	color: var(--muted);
+	text-decoration: underline;
+	text-underline-offset: 2px;
+}
+
+.footer-legal a:hover {
+	color: var(--link-hover);
+}
+
+.footer-legal-sep {
+	color: var(--border);
+	user-select: none;
+}
+
+/* Páginas legales */
+.legal-page {
+	padding: calc(var(--header-h) + 1.25rem) 0 3rem;
+}
+
+.legal-page article {
+	max-width: 42rem;
+	margin: 0 auto;
+}
+
+.legal-page h1 {
+	font-family: var(--font-display);
+	font-size: clamp(1.65rem, 4vw, 2rem);
+	font-weight: 600;
+	letter-spacing: -0.02em;
+	margin: 0 0 0.35rem;
+	line-height: 1.2;
+	color: var(--text);
+}
+
+.legal-updated {
+	font-size: 0.8125rem;
+	color: var(--muted);
+	margin: 0 0 1.75rem;
+}
+
+.legal-page h2 {
+	font-family: var(--font-display);
+	font-size: 1.05rem;
+	font-weight: 600;
+	margin: 1.75rem 0 0.5rem;
+	color: var(--text);
+}
+
+.legal-page p {
+	margin: 0 0 0.85rem;
+	color: var(--muted);
+	font-size: 0.9375rem;
+	line-height: 1.7;
+}
+
+.legal-page p:last-child {
+	margin-bottom: 0;
+}
+
+.legal-back {
+	display: inline-block;
+	margin-bottom: 1.5rem;
+	font-size: 0.9rem;
+	font-weight: 500;
 }
 
 /* Ajustes modo claro puntuales */

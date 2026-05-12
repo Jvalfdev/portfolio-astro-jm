@@ -6,9 +6,18 @@ import { enStrings } from "../i18n/en.ts";
 interface Props {
 	title?: string;
 	description?: string;
+	/** Clave en en.ts para <title> en inglés (p. ej. meta.legal.title) */
+	titleI18nKey?: string;
+	/** Clave en en.ts para meta description en inglés */
+	descI18nKey?: string;
 }
 
-const { title = siteMeta.title, description = siteMeta.description } = Astro.props;
+const {
+	title = siteMeta.title,
+	description = siteMeta.description,
+	titleI18nKey,
+	descI18nKey,
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -27,7 +36,7 @@ const { title = siteMeta.title, description = siteMeta.description } = Astro.pro
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
+	<body data-title-i18n={titleI18nKey} data-desc-i18n={descI18nKey}>
 		<script is:inline>
 			try {
 				if (localStorage.getItem("portfolio-lang") === "en") {
@@ -69,14 +78,22 @@ const { title = siteMeta.title, description = siteMeta.description } = Astro.pro
 						}
 					});
 
-					var mt = DICT["meta.title"];
-					if (safe === "en" && mt) document.title = mt;
+					var body = document.body;
+					var titleKey = body && body.getAttribute("data-title-i18n");
+					var descKey = body && body.getAttribute("data-desc-i18n");
+					var pageTitleEn = titleKey && Object.prototype.hasOwnProperty.call(DICT, titleKey) ? DICT[titleKey] : null;
+					var pageDescEn = descKey && Object.prototype.hasOwnProperty.call(DICT, descKey) ? DICT[descKey] : null;
+
+					if (safe === "en" && pageTitleEn) document.title = pageTitleEn;
+					else if (safe === "en" && DICT["meta.title"]) document.title = DICT["meta.title"];
 					else if (safe === "es" && window.__TITLE_ES__) document.title = window.__TITLE_ES__;
 
 					var meta = document.getElementById("site-meta-description");
 					if (meta) {
 						if (!window.__DESC_ES__) window.__DESC_ES__ = meta.getAttribute("content") || "";
-						if (safe === "en" && DICT["meta.description"]) meta.setAttribute("content", DICT["meta.description"]);
+						if (safe === "en" && pageDescEn) meta.setAttribute("content", pageDescEn);
+						else if (safe === "en" && DICT["meta.description"])
+							meta.setAttribute("content", DICT["meta.description"]);
 						else meta.setAttribute("content", window.__DESC_ES__ || "");
 					}
 

@@ -1,0 +1,81 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import { identity, contact } from "../data/site.ts";
+
+const title = `Política de privacidad | ${identity.name}`;
+const description =
+	"Información sobre tratamiento de datos personales, almacenamiento local y hosting del portafolio de Jose Vallejo.";
+---
+
+<BaseLayout {title} {description} titleI18nKey="meta.privacy.title" descI18nKey="meta.privacy.description">
+	<a class="skip-link" href="#contenido-legal" data-i18n="skip">Saltar al contenido</a>
+	<SiteHeader />
+	<div class="legal-page wrap">
+		<a class="legal-back" href="/#inicio" data-i18n="footer.back">← Volver al inicio</a>
+		<article id="contenido-legal">
+			<h1 data-i18n="legal.priv.title">Política de privacidad</h1>
+			<p class="legal-updated" data-i18n="legal.priv.updated">Última actualización: mayo de 2026</p>
+			<p data-i18n="legal.priv.lead">
+				Esta política describe el tratamiento de la información en el marco del Reglamento (UE)
+				2016/679 (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD), en la medida en que aplica a un sitio
+				estático de carácter personal.
+			</p>
+			<h2 data-i18n="legal.priv.h1">Responsable del tratamiento</h2>
+			<p data-i18n="legal.priv.p1">
+				El responsable es el titular del portafolio ({identity.name}). Para ejercer tus derechos en
+				materia de privacidad puedes escribir al correo publicado en la página de inicio (cuando
+				esté disponible) o contactar por LinkedIn según los enlaces del sitio.
+			</p>
+			<h2 data-i18n="legal.priv.h2">Datos que pueden tratarse</h2>
+			<p data-i18n="legal.priv.p2">
+				El sitio no dispone de formularios de registro ni de área de usuario alojada en servidor
+				propio. Si envías un correo electrónico, los datos identificativos y el contenido del mensaje
+				se tratarán únicamente para atender tu solicitud. La mera visita al sitio no implica que el
+				titular conozca tu identidad.
+			</p>
+			<h2 data-i18n="legal.priv.h3">Encargados y alojamiento</h2>
+			<p data-i18n="legal.priv.p3">
+				El sitio puede alojarse en infraestructura de terceros (por ejemplo Vercel u otro proveedor
+				similar). Dichos proveedores pueden tratar datos técnicos de conexión (dirección IP, registros
+				de sistema) con arreglo a sus propias políticas de privacidad en calidad de encargados o
+				responsables independientes para fines de seguridad y operación del servicio.
+			</p>
+			<h2 data-i18n="legal.priv.h4">Almacenamiento local (idioma y tema)</h2>
+			<p data-i18n="legal.priv.p4">
+				La página puede guardar en tu navegador, mediante tecnología equivalente al almacenamiento
+				local (localStorage), tus preferencias de idioma y, si las activas, de tema visual. Esta
+				información permanece en tu dispositivo y no sirve para perfilar tu comportamiento ni para
+				publicidad por parte del titular.
+			</p>
+			<h2 data-i18n="legal.priv.h5">Finalidades y legitimación</h2>
+			<p data-i18n="legal.priv.p5">
+				Las finalidades son la prestación del servicio informativo del portafolio, la gestión de
+				consultas que realices por correo u otros medios facilitados y la mejora de la experiencia de
+				uso. Las bases jurídicas pueden incluir el interés legítimo del responsable en mantener el
+				sitio y responder a comunicaciones, y cuando proceda tu consentimiento.
+			</p>
+			<h2 data-i18n="legal.priv.h6">Conservación</h2>
+			<p data-i18n="legal.priv.p6">
+				Los correos electrónicos se conservarán el tiempo necesario para la finalidad motivadora del
+				contacto. Los registros técnicos del alojamiento dependen de los plazos establecidos por el
+				proveedor correspondiente.
+			</p>
+			<h2 data-i18n="legal.priv.h7">Derechos</h2>
+			<p data-i18n="legal.priv.p7">
+				Puedes ejercer los derechos de acceso, rectificación, supresión, limitación, portabilidad y
+				oposición cuando corresponda, así como retirar el consentimiento en su caso, escribiendo a{" "}
+				{contact.email} (actualiza esta dirección en la configuración del sitio antes de publicar).
+				También puedes presentar una reclamación ante la Agencia Española de Protección de Datos (
+				www.aepd.es) u otra autoridad competente.
+			</p>
+			<h2 data-i18n="legal.priv.h8">Cambios</h2>
+			<p data-i18n="legal.priv.p8">
+				Esta política puede actualizarse para reflejar cambios en el sitio o en la normativa. La fecha
+				de «última actualización» se revisará en consecuencia.
+			</p>
+		</article>
+	</div>
+	<SiteFooter />
+</BaseLayout>

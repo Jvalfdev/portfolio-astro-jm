@@ -94,14 +94,95 @@ export const enStrings: Record<string, string> = {
 	"contact.label": "05 — Contact",
 	"contact.headline": "Let’s talk",
 	"contact.sub":
-		"Open to Java, JavaScript & .NET development plus Agile teaming — LinkedIn DM works best until you expose a mailbox. Swap the placeholder email whenever you publish it.",
+		"Open to Java, JavaScript & .NET roles and Agile collaboration. Reach me by email, phone, WhatsApp or LinkedIn.",
 	"contact.email": "Send email",
+	"contact.whatsapp": "WhatsApp",
+	"contact.mailLabel": "Email",
+	"contact.phoneLabel": "Phone",
 	"contact.meeting": "Book intro call",
 
-	"footer.lead":
-		"Editable content lives in",
+	"footer.legal": "Legal notice",
+	"footer.privacy": "Privacy",
+	"footer.cookies": "Cookies",
+	"footer.back": "← Back to portfolio",
 
 	"meta.title": "Jose Vallejo — Software Engineer | Java Spring · C# · Angular",
 	"meta.description":
 		"Madrid · Agile software engineer (Java Spring, C#, Angular) at Capgemini. Former PlusNet, Accenture España and Defence technical‑team leadership.",
+
+	"meta.legal.title": "Legal notice — Jose Vallejo",
+	"meta.legal.description":
+		"LSSI-compliant legal notice for this professional portfolio hosted as a static website.",
+	"meta.privacy.title": "Privacy policy — Jose Vallejo",
+	"meta.privacy.description":
+		"How this portfolio handles personal data, local storage (language/theme) and third-party links.",
+	"meta.cookies.title": "Cookies & local storage — Jose Vallejo",
+	"meta.cookies.description":
+		"No analytics cookies. Brief explanation of local storage used for UI preferences on this portfolio.",
+
+	"legal.al.title": "Legal notice",
+	"legal.al.updated": "Last updated: May 2026",
+	"legal.al.lead":
+		"This site is a personal portfolio. The information below fulfills Spain’s Law 34/2002 (LSSI-CE) transparency duties for informational websites.",
+	"legal.al.h1": "Website owner",
+	"legal.al.p1":
+		"Site owner: Jose Vallejo (professional portfolio). For legal communications, use the email published in the contact section on the home page (when available) or the LinkedIn channels linked from the site.",
+	"legal.al.h2": "Purpose of the site",
+	"legal.al.p2":
+		"To present professional experience, projects and contact channels. There is no e-commerce, user registration or paid service on this website.",
+	"legal.al.h3": "Intellectual property",
+	"legal.al.p3":
+		"Content and design are owned by the site owner unless otherwise stated. Third-party trademarks or logos belong to their respective owners.",
+	"legal.al.h4": "External links",
+	"legal.al.p4":
+		"Links to third parties (e.g. GitHub, LinkedIn) are provided for convenience. The owner is not responsible for the content or policies of external sites.",
+	"legal.al.h5": "Disclaimer",
+	"legal.al.p5":
+		"Information is provided in good faith and may be updated without prior notice. No guarantee is given beyond what the law requires for an informational site of this nature.",
+	"legal.al.h6": "Applicable law",
+	"legal.al.p6":
+		"Spanish law applies. For EU consumers, mandatory provisions of their country of residence remain unaffected where applicable.",
+
+	"legal.priv.title": "Privacy policy",
+	"legal.priv.updated": "Last updated: May 2026",
+	"legal.priv.lead":
+		"This policy describes how this portfolio treats information in line with Regulation (EU) 2016/679 (GDPR) and Organic Law 3/2018 (LOPDGDD), within the limits of a static personal site.",
+	"legal.priv.h1": "Data controller",
+	"legal.priv.p1":
+		"The controller is the site owner (Jose Vallejo). For privacy requests, use the contact email shown on the home page when published, or LinkedIn messages as a fallback.",
+	"legal.priv.h2": "Data we process",
+	"legal.priv.p2":
+		"This site does not use registration forms or server-side accounts. If you send an email, your address and message content are processed only to respond. Visiting the site does not require disclosing your identity to the owner.",
+	"legal.priv.h3": "Hosting and technical providers",
+	"legal.priv.p3":
+		"The site may be hosted on infrastructure such as Vercel or similar. Those providers can process technical connection data (IP, logs) under their own privacy policies as data processors or independent controllers for infrastructure security.",
+	"legal.priv.h4": "Local storage (language & theme)",
+	"legal.priv.p4":
+		"The browser may store your language and theme choices locally (localStorage). This does not leave the user’s device for tracking by the site owner and is used solely to remember UI preferences.",
+	"legal.priv.h5": "Purpose and legal basis",
+	"legal.priv.p5":
+		"Purpose: running the portfolio, answering contact requests and improving usability. Legal bases can include legitimate interest (operating the site, security) and, where needed, consent (e.g. optional communications).",
+	"legal.priv.h6": "Retention",
+	"legal.priv.p6":
+		"Emails are kept only as long as needed for the conversation. Server logs depend on the hosting provider’s retention settings.",
+	"legal.priv.h7": "Your rights",
+	"legal.priv.p7":
+		"You may request access, rectification, erasure, restriction, portability or object to processing where applicable, and withdraw consent when it applies, by emailing the contact address configured in site settings before launch. You may also lodge a complaint with the Spanish Data Protection Agency (www.aepd.es) or your local supervisory authority.",
+	"legal.priv.h8": "Changes",
+	"legal.priv.p8":
+		"This text may be updated to reflect changes to the site or the law. The “last updated” date will be revised accordingly.",
+
+	"legal.cook.title": "Cookies & local storage",
+	"legal.cook.updated": "Last updated: May 2026",
+	"legal.cook.lead":
+		"This portfolio does not use advertising or analytics cookies. Below is a short summary of similar technologies used for basic functionality.",
+	"legal.cook.h1": "What we use",
+	"legal.cook.p1":
+		"The site may store two values in the browser’s localStorage: preferred language (Spanish/English) and optional light theme. They are not used to profile you or share data with advertisers.",
+	"legal.cook.h2": "Third-party content",
+	"legal.cook.p2":
+		"Fonts may load from Google Fonts; those requests can be logged by Google under their policy. You can block third-party resources in your browser if you prefer.",
+	"legal.cook.h3": "Managing storage and cookies",
+	"legal.cook.p3":
+		"You can clear site data or disable storage in your browser settings. Doing so may reset language and theme on your next visit.",
 };

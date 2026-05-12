@@ -5,9 +5,12 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer wrap">
-	<p>
-		© {year} {identity.name}.{" "}
-		<span data-i18n="footer.lead">Contenido editable en</span>{" "}
-		<code style="font-size: 0.85em">src/data/site.ts</code>.
-	</p>
+	<p class="footer-line">© {year} {identity.name}.</p>
+	<nav class="footer-legal" aria-label="Información legal">
+		<a href="/aviso-legal" data-i18n="footer.legal">Aviso legal</a>
+		<span class="footer-legal-sep" aria-hidden="true">·</span>
+		<a href="/politica-privacidad" data-i18n="footer.privacy">Privacidad</a>
+		<span class="footer-legal-sep" aria-hidden="true">·</span>
+		<a href="/politica-cookies" data-i18n="footer.cookies">Cookies</a>
+	</nav>
 </footer>

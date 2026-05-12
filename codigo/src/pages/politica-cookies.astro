@@ -1,0 +1,46 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import { identity } from "../data/site.ts";
+
+const title = `Política de cookies | ${identity.name}`;
+const description =
+	"Uso de almacenamiento local y ausencia de cookies analíticas en el portafolio de Jose Vallejo.";
+---
+
+<BaseLayout {title} {description} titleI18nKey="meta.cookies.title" descI18nKey="meta.cookies.description">
+	<a class="skip-link" href="#contenido-legal" data-i18n="skip">Saltar al contenido</a>
+	<SiteHeader />
+	<div class="legal-page wrap">
+		<a class="legal-back" href="/#inicio" data-i18n="footer.back">← Volver al inicio</a>
+		<article id="contenido-legal">
+			<h1 data-i18n="legal.cook.title">Cookies y almacenamiento local</h1>
+			<p class="legal-updated" data-i18n="legal.cook.updated">Última actualización: mayo de 2026</p>
+			<p data-i18n="legal.cook.lead">
+				Este portafolio no utiliza cookies de publicidad ni de analítica de terceros. A continuación se
+				resume el uso de tecnologías equivalentes para el funcionamiento básico del sitio.
+			</p>
+			<h2 data-i18n="legal.cook.h1">Qué se utiliza</h2>
+			<p data-i18n="legal.cook.p1">
+				La página puede almacenar en tu navegador, mediante una tecnología similar a las cookies
+				(almacenamiento local o localStorage), tu idioma preferido y, si lo activas, la preferencia de
+				tema claro u oscuro. Estos valores sirven únicamente para recordar tus elecciones de interfaz,
+				no para crear perfiles publicitarios.
+			</p>
+			<h2 data-i18n="legal.cook.h2">Contenido de terceros</h2>
+			<p data-i18n="legal.cook.p2">
+				El diseño puede cargar tipografías desde Google Fonts; esas solicitudes pueden quedar
+				registradas por Google según su política. Puedes bloquear o limitar estos recursos en la
+				configuración del navegador si lo prefieres.
+			</p>
+			<h2 data-i18n="legal.cook.h3">Gestión en el navegador</h2>
+			<p data-i18n="legal.cook.p3">
+				Puedes borrar los datos guardados por este sitio o desactivar el almacenamiento local desde
+				los ajustes de privacidad de tu navegador. Ten en cuenta que eso puede restablecer el idioma y
+				el tema en la próxima visita.
+			</p>
+		</article>
+	</div>
+	<SiteFooter />
+</BaseLayout>
